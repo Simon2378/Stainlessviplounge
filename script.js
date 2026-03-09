@@ -67,24 +67,42 @@ function setupAdminView() {
 function setupQrCode() {
     const qrImage = document.getElementById('qr-image');
     const qrTarget = document.getElementById('qr-target');
+    const websiteUrl = 'https://stainlessviplounge.netlify.app/';
 
     if (!qrImage) {
         return;
     }
 
-    const configuredUrl = (document.body.dataset.siteUrl || '').trim();
-    const pageUrl = window.location.protocol.startsWith('http') ? window.location.href : '';
-    const websiteUrl = configuredUrl || pageUrl;
-
-    if (!websiteUrl) {
-        qrImage.alt = 'QR code unavailable';
-        if (qrTarget) {
-            qrTarget.textContent = 'Set a live URL in body data-site-url to generate a printable QR code.';
+    const normalizeWebsiteUrl = (value) => {
+        const raw = (value || '').trim();
+        if (!raw) {
+            return '';
         }
-        return;
-    }
 
-    const qrServiceUrl = `https://api.qrserver.com/v1/create-qr-code/?size=900x900&margin=20&ecc=H&data=${encodeURIComponent(websiteUrl)}`;
+        if (/^https:\/\//i.test(raw) || /^http:\/\//i.test(raw)) {
+            return raw;
+        }
+
+        if (/^https:\//i.test(raw)) {
+            return raw.replace(/^https:\//i, 'https://');
+        }
+
+        if (/^https\//i.test(raw)) {
+            return raw.replace(/^https\//i, 'https://');
+        }
+
+        if (/^http:\//i.test(raw)) {
+            return raw.replace(/^http:\//i, 'http://');
+        }
+
+        if (/^http\//i.test(raw)) {
+            return raw.replace(/^http\//i, 'http://');
+        }
+
+        return `https://${raw.replace(/^\/+/, '')}`;
+    };
+
+    const qrServiceUrl = `https://api.qrserver.com/v1/create-qr-code/?size=1200x1200&margin=20&ecc=H&data=${encodeURIComponent(websiteUrl)}`;
     qrImage.src = qrServiceUrl;
     if (qrTarget) {
         qrTarget.textContent = websiteUrl;
