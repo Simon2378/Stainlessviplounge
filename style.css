@@ -325,3 +325,123 @@ body.admin-view .qr-section {
         height: 50mm;
     }
 }
+
+.landing-page {
+    min-height: 100vh;
+    margin: 0;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.65)), url('stainless.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 16px;
+}
+
+.landing-overlay {
+    width: min(760px, 96%);
+    text-align: center;
+}
+
+.landing-logo {
+    width: 94px;
+    height: 94px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0 auto 14px;
+    border: 3px solid rgba(255, 255, 255, 0.9);
+}
+
+.landing-title {
+    font-size: clamp(2rem, 6vw, 3.2rem);
+    margin: 0 0 10px;
+}
+
+.landing-description {
+    max-width: 600px;
+    margin: 0 auto 18px;
+    line-height: 1.6;
+}
+
+.landing-cta {
+    display: inline-block;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-weight: 700;
+    animation: ctaShake 2.2s ease-in-out infinite;
+}
+
+.landing-cta:hover {
+    animation-duration: 1.2s;
+}
+
+@keyframes ctaShake {
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+    10% {
+        transform: translateX(-1px) rotate(-0.8deg);
+    }
+    20% {
+        transform: translateX(1px) rotate(0.8deg);
+    }
+    30% {
+        transform: translateX(-2px) rotate(-1deg);
+    }
+    40% {
+        transform: translateX(2px) rotate(1deg);
+    }
+    50% {
+        transform: translateX(-1px) rotate(-0.5deg);
+    }
+    60% {
+        transform: translateX(1px) rotate(0.5deg);
+    }
+}
+
+.landing-call {
+    margin: 12px 0 14px;
+    font-weight: 700;
+}
+
+.landing-socials {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.social-link {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    overflow: hidden;
+}
+
+.social-icon {
+    width: 26px;
+    height: 26px;
+    object-fit: contain;
+}
+
+.social-link:hover {
+    transform: translateY(-1px);
+}
+
+.landing-footer {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
