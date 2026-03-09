@@ -277,6 +277,33 @@ body.admin-view .qr-section {
         gap: 10px;
     }
 
+    .card {
+        min-height: 300px;
+    }
+
+    .card img,
+    .card.food img {
+        height: 140px;
+    }
+
+    .card.beer img,
+    .card.soft-drinks img,
+    .card.whisky img,
+    .card.champagne img {
+        height: 160px;
+        padding: 6px;
+    }
+
+    .card h3 {
+        font-size: 0.95rem;
+        min-height: auto;
+    }
+
+    .order-now {
+        font-size: 0.85rem;
+        padding: 8px 12px;
+    }
+
     .floating-order-button {
         right: 12px;
         bottom: 12px;
