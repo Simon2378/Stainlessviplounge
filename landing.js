@@ -39,5 +39,5 @@ document.addEventListener('DOMContentLoaded', () => {
         previousLayer.classList.remove('is-visible');
 
         showLayerA = !showLayerA;
-    }, 5000);
+    }, 3000);
 });
