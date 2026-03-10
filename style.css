@@ -327,21 +327,42 @@ body.admin-view .qr-section {
 }
 
 .landing-page {
+    position: relative;
     min-height: 100vh;
     margin: 0;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.65)), url('Stainless1.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background-color: #0f1114;
     color: #fff;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 20px 16px;
+    overflow: hidden;
+}
+
+.landing-slideshow {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.slide-layer {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 1.2s ease;
+}
+
+.slide-layer.is-visible {
+    opacity: 1;
 }
 
 .landing-overlay {
+    position: relative;
+    z-index: 1;
     width: min(760px, 96%);
     text-align: center;
 }
@@ -441,6 +462,8 @@ body.admin-view .qr-section {
 }
 
 .landing-footer {
+    position: relative;
+    z-index: 1;
     margin-top: 20px;
     font-size: 0.9rem;
     opacity: 0.9;
