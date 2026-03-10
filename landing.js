@@ -8,8 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const imageFiles = [
-        'Stainless1.png',
         'All type.png',
+        'Stainless1.png',
         'Starting.png',
         'Boss Wallpapers.png',
     ];
