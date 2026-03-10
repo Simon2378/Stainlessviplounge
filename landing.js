@@ -9,9 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const imageFiles = [
         'Stainless1.png',
+        'All type.png',
         'Starting.png',
         'Boss Wallpapers.png',
-        'All type.png'
     ];
 
     const withOverlay = (fileName) => (
