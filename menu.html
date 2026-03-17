@@ -5,47 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stainless Restaurant</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="translations.css">
 </head>
-<body data-site-url="https://stainlessviplounge.netlify.app/" data-whatsapp-number="237686588985">
+<body class="menu-page" data-site-url="https://stainlessviplounge.versel.app/" data-whatsapp-number="237686588985">
+    <div class="language-toggle">
+        <button class="lang-btn active" data-lang="en" onclick="setLanguage('en')">English</button>
+        <button class="lang-btn" data-lang="fr" onclick="setLanguage('fr')">Francais</button>
+    </div>
     <header class="header">
         <img src="stainless.png" alt="Stainless logo" class="logo">
         <div class="restaurant-info">
             <!-- Restaurant Main Heading -->
             <h1>Stainless</h1>
             <p><em>VIP Lounge</em></p>
-            <p>📍 Edea Cameroon, Face Hopital Delangue</p>
-            <p>📞 +237686588985</p>
+            <p data-i18n="menu.location">📍 Edea Cameroon, Face Hopital Delangue</p>
+            <p data-i18n="menu.phone">📞 +237686588985</p>
         </div>
     </header>
 
     <section id="selected-item" class="selected-item" hidden>
-        <button type="button" id="selected-item-back" class="selected-item-back">&larr; Back to menu</button>
+        <button type="button" id="selected-item-back" class="selected-item-back" data-i18n="menu.backToMenu">&larr; Back to menu</button>
         <div id="selected-item-content" class="selected-item-content"></div>
     </section>
 
     <div class="buttons">
-        <button type="button" onclick="filterMenu('food')">Food</button>
-        <button type="button" onclick="filterMenu('soft-drinks')">Soft Drinks</button>
-        <button type="button" onclick="filterMenu('beer')">Beer</button>
-        <button type="button" onclick="filterMenu('whisky')">Whisky</button>
-        <button type="button" onclick="filterMenu('champagne')">Champagne/Wine</button>
-        <button type="button" onclick="filterMenu('all')">All</button>
+        <button type="button" onclick="filterMenu('food')" data-i18n="menu.filterFood">Food</button>
+        <button type="button" onclick="filterMenu('soft-drinks')" data-i18n="menu.filterSoftDrinks">Soft Drinks</button>
+        <button type="button" onclick="filterMenu('beer')" data-i18n="menu.filterBeer">Beer</button>
+        <button type="button" onclick="filterMenu('whisky')" data-i18n="menu.filterWhisky">Whisky</button>
+        <button type="button" onclick="filterMenu('champagne')" data-i18n="menu.filterChampagne">Champagne/Wine</button>
+        <button type="button" onclick="filterMenu('all')" data-i18n="menu.filterAll">All</button>
     </div>
 
     <div class="search">
-        <input type="text" id="search" placeholder="Search any menu item..." onkeyup="searchMenu()">
+        <input type="text" id="search" placeholder="Search any menu item..." data-i18n-placeholder="menu.searchPlaceholder" onkeyup="searchMenu()">
     </div>
 
     <section class="qr-section">
         <img id="qr-image" class="qr-image" alt="Menu QR code">
         <p id="qr-target" class="qr-target"></p>
-        <P>Welcome to Stainless</P>
-        <p>Scan this QR code to open this website menu.</p>
+        <p data-i18n="menu.welcome">Welcome to Stainless</p>
+        <p data-i18n="menu.scanQr">Scan this QR code to open this website menu.</p>
     </section>
 
     <main class="menu" id="menu">
         <!-- Food Section Heading -->
-        <h2 class="category-title">Food</h2>
+        <h2 class="category-title" data-i18n="menu.categoryFood">Food</h2>
         <div class="menu-grid" id="food-grid">
             <div class="card food" data-name="monday bouillon de poisson" data-category="food" data-image="Bouillon.png" data-price="1000 FCFA">
                 <img src="Bouillon.png" alt="Bouillon de Poisson">
@@ -128,7 +133,7 @@
         </div>
 
         <!-- Soft Drinks Section Heading -->
-        <h2 class="category-title">Soft Drinks</h2>
+        <h2 class="category-title" data-i18n="menu.categorySoftDrinks">Soft Drinks</h2>
         <div class="menu-grid" id="soft-drinks-grid">
             <div class="card soft-drinks" data-name="malta guinness" data-category="soft-drinks" data-image="Malta.png" data-price="1000 FCFA">
                 <img src="Malta.png" alt="Malta Guinness">
@@ -197,7 +202,7 @@
             </div>
         </div>
         <!-- Beer Section Heading -->
-        <h2 class="category-title">Beer</h2>
+        <h2 class="category-title" data-i18n="menu.categoryBeer">Beer</h2>
         <div class="menu-grid" id="beer-grid">
             <div class="card beer" data-name="heineken" data-category="beer" data-image="Heineken.png" data-price="1500 FCFA">
                 <img src="Heineken.png" alt="Heineken">
@@ -287,7 +292,7 @@
         </div>
 
         <!-- Whisky Section Heading -->
-        <h2 class="category-title">Whisky</h2>
+        <h2 class="category-title" data-i18n="menu.categoryWhisky">Whisky</h2>
         <div class="menu-grid" id="whisky-grid">
             <div class="card whisky" data-name="Gold label" data-category="whisky" data-image="Gold.png" data-price="70000 FCFA">
                 <img src="Gold.png" alt="Gold Label">
@@ -299,7 +304,7 @@
                 <h3>Hennesey</h3>
                 <p>45000 FCFA</p>
             </div>
-            <div class="card whisky" data-nmae="Chivas" data-category="whisky" data-image="Chivas.png" data-price="35000 FCFA">
+            <div class="card whisky" data-name="Chivas" data-category="whisky" data-image="Chivas.png" data-price="35000 FCFA">
                 <img src="Chivas.png" alt="Chivas">
                 <h3>Chivas</h3>
                 <p>35000 FCFA</p>
@@ -319,7 +324,7 @@
                 <h3>Singleton</h3>
                 <p>45000 FCFA</p>
             </div>
-            <div class="card whisky" date-name="Jack Daniel's" data-category="whisky" data-image="Jack.png" data-price="35000 FCFA">
+            <div class="card whisky" data-name="Jack Daniel's" data-category="whisky" data-image="Jack.png" data-price="35000 FCFA">
                 <img src="Jack.png" alt="Jack Daniel's">
                 <h3>Jack Daniel's</h3>
                 <p>35000 FCFA</p>
@@ -334,24 +339,24 @@
                 <h3>Bailey's</h3>
                 <p>25000 FCFA</p>
             </div>
-            <div class="card whisky" date-name="Black & White" data-category="whisky" data-image="black&white.png" data-price="20000 FCFA">
+            <div class="card whisky" data-name="Black & White" data-category="whisky" data-image="black&white.png" data-price="20000 FCFA">
                 <img src="black&white.png" alt="Black & White">
                 <h3>Black & White</h3>
                 <p>20000 FCFA</p>
             </div>
-            <div class="card whisky" date-name="Glenlivet" data-category="whisky" data-image="Glenlivet  (1).png" data-price="20000 FCFA">
+            <div class="card whisky" data-name="Glenlivet" data-category="whisky" data-image="Glenlivet  (1).png" data-price="20000 FCFA">
                 <img src="Glenlivet  (1).png" alt="Glenlivet">
                 <h3>Glenlivet</h3>
                 <p>20000 FCFA</p>
             </div>
-            <div class="card whisky" date-name="J&B" data-category="whisky" data-image="J&B.png" data-price="20000 FCFA">
+            <div class="card whisky" data-name="J&B" data-category="whisky" data-image="J&B.png" data-price="20000 FCFA">
                 <img src="J&B.png" alt="J&B">
                 <h3>J&B</h3>
                 <p>20000 FCFA</p>
             </div>
         </div>
         <!-- Champagne/Wine Section Heading -->
-        <h2 class="category-title">Champagne/Wine</h2>
+        <h2 class="category-title" data-i18n="menu.categoryChampagne">Champagne/Wine</h2>
         <div class="menu-grid" id="champagne-grid">
             <div class="card champagne" data-name="moet" data-category="champagne" data-image="Moet.png" data-price="45000 FCFA">
                 <img src="Moet.png" alt="Moet">
@@ -418,10 +423,12 @@
             <h3>Vieux Moulin</h3>
             <p>6000</p>
         </div>
+        </div>
     </main>
 
-    <button type="button" id="floating-order-button" class="floating-order-button">Order Food on WhatsApp</button>
+    <button type="button" id="floating-order-button" class="floating-order-button" data-i18n="menu.orderFloating">Order Food on WhatsApp</button>
 
+    <script src="translations.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

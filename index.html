@@ -5,8 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stainless VIP Lounge</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="translations.css">
 </head>
 <body class="landing-page">
+    <div class="language-toggle">
+        <button class="lang-btn active" data-lang="en" onclick="setLanguage('en')">English</button>
+        <button class="lang-btn" data-lang="fr" onclick="setLanguage('fr')">Français</button>
+    </div>
     <div class="landing-slideshow" aria-hidden="true">
         <div class="slide-layer layer-a"></div>
         <div class="slide-layer layer-b"></div>
@@ -33,6 +38,7 @@
     </main>
 
     <footer class="landing-footer">&copy; 2026 Stainless VIP Lounge.</footer>
+    <script src="translations.js" defer></script>
     <script src="landing.js" defer></script>
 </body>
 </html>

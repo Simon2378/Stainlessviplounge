@@ -1,0 +1,52 @@
+/* Language Toggle */
+.language-toggle {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 1000;
+    display: flex;
+    gap: 8px;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 8px 12px;
+    border-radius: 20px;
+    backdrop-filter: blur(4px);
+}
+
+.lang-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.lang-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.lang-btn.active {
+    background-color: #333;
+    color: #fff;
+}
+
+.menu-page .language-toggle {
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.menu-page .lang-btn {
+    color: #333;
+}
+
+.menu-page .lang-btn:hover {
+    background-color: rgba(0, 0, 0, 0.08);
+}
+
+.menu-page .lang-btn.active {
+    background-color: #333;
+    color: #fff;
+}

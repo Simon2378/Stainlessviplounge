@@ -1,4 +1,41 @@
 let currentCategory = 'all';
+
+function normalizeAssetPath(rawPath) {
+    if (!rawPath) {
+        return rawPath;
+    }
+
+    const isAbsolute = /^(https?:|data:|blob:|\/\/)/i.test(rawPath);
+    if (isAbsolute) {
+        return rawPath;
+    }
+
+    return rawPath
+        .split('/')
+        .map((segment) => {
+            if (!segment) {
+                return segment;
+            }
+
+            try {
+                return encodeURIComponent(decodeURIComponent(segment));
+            } catch (error) {
+                return encodeURIComponent(segment);
+            }
+        })
+        .join('/');
+}
+
+function normalizeImageSources() {
+    document.querySelectorAll('img[src]').forEach((image) => {
+        const source = image.getAttribute('src');
+        const normalizedSource = normalizeAssetPath(source);
+        if (source && normalizedSource !== source) {
+            image.setAttribute('src', normalizedSource);
+        }
+    });
+}
+
 function getWhatsAppNumber() {
     const rawNumber = (document.body.dataset.whatsappNumber || '237686588985').trim();
     return rawNumber.replace(/\D/g, '');
@@ -12,6 +49,18 @@ function openWhatsAppOrder(message) {
 
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
+}
+
+function getUiText(key, fallback) {
+    if (typeof getTranslation === 'function') {
+        const currentLang = localStorage.getItem('stainless_language') || 'en';
+        const translatedText = getTranslation(currentLang, key);
+        if (typeof translatedText === 'string') {
+            return translatedText;
+        }
+    }
+
+    return fallback;
 }
 
 function setupFoodOrderWhatsApp() {
@@ -28,9 +77,11 @@ function setupFoodOrderWhatsApp() {
 
             const itemName = card.querySelector('h3')?.textContent?.trim() || 'Food item';
             const itemPrice = card.querySelector('.price')?.textContent?.trim() || card.dataset.price || '';
+            const orderTemplate = getUiText('menu.orderMessage', 'Hello Stainless, I want to order {item} ({price}).');
+            const orderWithoutPriceTemplate = getUiText('menu.orderMessageNoPrice', 'Hello Stainless, I want to order {item}.');
             const message = itemPrice
-                ? `Hello Stainless, I want to order ${itemName} (${itemPrice}).`
-                : `Hello Stainless, I want to order ${itemName}.`;
+                ? orderTemplate.replace('{item}', itemName).replace('{price}', itemPrice)
+                : orderWithoutPriceTemplate.replace('{item}', itemName);
 
             openWhatsAppOrder(message);
         });
@@ -44,7 +95,7 @@ function setupFloatingOrderButton() {
     }
 
     floatingButton.addEventListener('click', () => {
-        openWhatsAppOrder('Hello Stainless, I want to place an order.');
+        openWhatsAppOrder(getUiText('menu.orderFloatingMessage', 'Hello Stainless, I want to place an order.'));
     });
 }
 
@@ -203,6 +254,7 @@ function searchMenu() {
 }
 
 setupAdminView();
+normalizeImageSources();
 setupQrCode();
 setupFoodOrderWhatsApp();
 setupFloatingOrderButton();

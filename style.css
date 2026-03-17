@@ -30,6 +30,11 @@ body {
     margin: 4px 0;
 }
 
+.restaurant-info p {
+    font-size: 0.9rem;
+    line-height: 1.3;
+}
+
 .buttons {
     display: flex;
     justify-content: center;

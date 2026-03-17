@@ -14,9 +14,10 @@ document.addEventListener('DOMContentLoaded', () => {
         'Boss Wallpapers.png',
     ];
 
-    const withOverlay = (fileName) => (
-        `linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.68)), url('${fileName}')`
-    );
+    const withOverlay = (fileName) => {
+        const encodedFileName = encodeURIComponent(fileName);
+        return `linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.68)), url("${encodedFileName}")`;
+    };
 
     let currentIndex = 0;
     let showLayerA = true;
