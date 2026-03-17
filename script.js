@@ -118,7 +118,7 @@ function setupAdminView() {
 function setupQrCode() {
     const qrImage = document.getElementById('qr-image');
     const qrTarget = document.getElementById('qr-target');
-    const websiteUrl = 'https://stainlessviplounge.netlify.app/';
+    const websiteUrl = 'https://stainlessviplounge.vercel.app/';
 
     if (!qrImage) {
         return;

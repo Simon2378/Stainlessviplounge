@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="translations.css">
 </head>
-<body class="menu-page" data-site-url="https://stainlessviplounge.versel.app/" data-whatsapp-number="237686588985">
+<body class="menu-page" data-site-url="https://stainlessviplounge.vercel.app/" data-whatsapp-number="237686588985">
     <header class="header">
         <img src="stainless.png" alt="Stainless logo" class="logo">
         <div class="restaurant-info">
@@ -51,7 +51,10 @@
     </div>
 
     <section class="qr-section">
-        <img id="qr-image" class="qr-image" alt="Menu QR code">
+        <div class="qr-wrapper">
+            <img id="qr-image" class="qr-image" alt="Menu QR code">
+            <img src="stainless.png" class="qr-logo" alt="Stainless logo">
+        </div>
         <p id="qr-target" class="qr-target"></p>
         <p data-i18n="menu.welcome">Welcome to Stainless</p>
         <p data-i18n="menu.scanQr">Scan this QR code to open this website menu.</p>
