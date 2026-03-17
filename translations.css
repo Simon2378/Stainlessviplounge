@@ -83,14 +83,30 @@
 
 .menu-page .header {
     position: relative;
-    padding-right: 180px;
+}
+
+.menu-page .restaurant-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.menu-page .title-row {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.menu-page .title-row h1 {
+    margin: 4px 0;
 }
 
 .menu-page .language-toggle {
-    position: absolute;
-    top: 12px;
-    right: 16px;
-    z-index: 10;
+    position: static;
+    z-index: 1;
+    margin: 0;
+    margin-left: auto;
 }
 
 .menu-page .language-menu {
@@ -117,10 +133,13 @@
         flex-wrap: wrap;
     }
 
+    .menu-page .title-row {
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
     .menu-page .language-toggle {
-        position: static;
-        margin-left: auto;
-        margin-top: 8px;
+        margin: 2px 0 6px;
     }
 }
 

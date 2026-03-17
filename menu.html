@@ -12,21 +12,23 @@
         <img src="stainless.png" alt="Stainless logo" class="logo">
         <div class="restaurant-info">
             <!-- Restaurant Main Heading -->
-            <h1>Stainless</h1>
+            <div class="title-row">
+                <h1>Stainless</h1>
+                <div class="language-toggle" id="language-toggle">
+                    <button type="button" class="language-trigger" id="language-trigger" aria-label="Change language" aria-expanded="false" aria-controls="language-menu">
+                        <span class="language-globe" aria-hidden="true">🌍</span>
+                        <span class="language-current" id="language-current-label">English</span>
+                        <span class="language-caret" aria-hidden="true">▾</span>
+                    </button>
+                    <div class="language-menu" id="language-menu" hidden>
+                        <a href="#" class="lang-option active" data-lang="en">English</a>
+                        <a href="#" class="lang-option" data-lang="fr">Francais</a>
+                    </div>
+                </div>
+            </div>
             <p><em>VIP Lounge</em></p>
             <p data-i18n="menu.location">📍 Edea Cameroon, Face Hopital Delangue</p>
             <p data-i18n="menu.phone">📞 +237686588985</p>
-        </div>
-        <div class="language-toggle" id="language-toggle">
-            <button type="button" class="language-trigger" id="language-trigger" aria-label="Change language" aria-expanded="false" aria-controls="language-menu">
-                <span class="language-globe" aria-hidden="true">🌍</span>
-                <span class="language-current" id="language-current-label">English</span>
-                <span class="language-caret" aria-hidden="true">▾</span>
-            </button>
-            <div class="language-menu" id="language-menu" hidden>
-                <a href="#" class="lang-option active" data-lang="en">English</a>
-                <a href="#" class="lang-option" data-lang="fr">Francais</a>
-            </div>
         </div>
     </header>
 
