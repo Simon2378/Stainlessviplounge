@@ -8,9 +8,16 @@
     <link rel="stylesheet" href="translations.css">
 </head>
 <body class="landing-page">
-    <div class="language-toggle">
-        <button class="lang-btn active" data-lang="en" onclick="setLanguage('en')">English</button>
-        <button class="lang-btn" data-lang="fr" onclick="setLanguage('fr')">Français</button>
+    <div class="language-toggle" id="language-toggle">
+        <button type="button" class="language-trigger" id="language-trigger" aria-label="Change language" aria-expanded="false" aria-controls="language-menu">
+            <span class="language-globe" aria-hidden="true">🌍</span>
+            <span class="language-current" id="language-current-label">English</span>
+            <span class="language-caret" aria-hidden="true">▾</span>
+        </button>
+        <div class="language-menu" id="language-menu" hidden>
+            <a href="#" class="lang-option active" data-lang="en">English</a>
+            <a href="#" class="lang-option" data-lang="fr">Francais</a>
+        </div>
     </div>
     <div class="landing-slideshow" aria-hidden="true">
         <div class="slide-layer layer-a"></div>

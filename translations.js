@@ -121,8 +121,72 @@ function applyTranslationsForPage(lang) {
 }
 
 function updateLanguageButtons(lang) {
-    document.querySelectorAll('.lang-btn').forEach((btn) => {
-        btn.classList.toggle('active', btn.dataset.lang === lang);
+    let activeLabel = 'English';
+
+    document.querySelectorAll('.lang-option').forEach((option) => {
+        const isActive = option.dataset.lang === lang;
+        option.classList.toggle('active', isActive);
+        if (isActive) {
+            activeLabel = option.textContent.trim();
+        }
+    });
+
+    const currentLabel = document.getElementById('language-current-label');
+    if (currentLabel) {
+        currentLabel.textContent = activeLabel;
+    }
+}
+
+function setupLanguageSelector() {
+    const toggle = document.getElementById('language-toggle');
+    const trigger = document.getElementById('language-trigger');
+    const menu = document.getElementById('language-menu');
+
+    if (!toggle || !trigger || !menu) {
+        return;
+    }
+
+    const closeMenu = () => {
+        menu.hidden = true;
+        trigger.setAttribute('aria-expanded', 'false');
+    };
+
+    const openMenu = () => {
+        menu.hidden = false;
+        trigger.setAttribute('aria-expanded', 'true');
+    };
+
+    trigger.addEventListener('click', (event) => {
+        event.stopPropagation();
+        if (menu.hidden) {
+            openMenu();
+            return;
+        }
+        closeMenu();
+    });
+
+    menu.addEventListener('click', (event) => {
+        const option = event.target.closest('.lang-option');
+        if (!option) {
+            return;
+        }
+
+        event.preventDefault();
+        const lang = option.dataset.lang;
+        setLanguage(lang);
+        closeMenu();
+    });
+
+    document.addEventListener('click', (event) => {
+        if (!toggle.contains(event.target)) {
+            closeMenu();
+        }
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            closeMenu();
+        }
     });
 }
 
@@ -134,6 +198,7 @@ function setLanguage(lang) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    setupLanguageSelector();
     const savedLang = localStorage.getItem('stainless_language') || 'en';
     setLanguage(savedLang);
 });
