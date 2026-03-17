@@ -199,6 +199,5 @@ function setLanguage(lang) {
 
 document.addEventListener('DOMContentLoaded', () => {
     setupLanguageSelector();
-    const savedLang = localStorage.getItem('stainless_language') || 'en';
-    setLanguage(savedLang);
+    setLanguage('en');
 });

@@ -123,3 +123,41 @@
         margin-top: 8px;
     }
 }
+
+@media (max-width: 480px) {
+    .language-toggle {
+        top: 10px;
+        right: 10px;
+    }
+
+    .language-trigger {
+        min-width: 118px;
+        height: 36px;
+        padding: 0 10px;
+        gap: 6px;
+        font-size: 0.82rem;
+    }
+
+    .language-globe {
+        font-size: 0.95rem;
+    }
+
+    .language-current {
+        min-width: 45px;
+    }
+
+    .language-caret {
+        font-size: 0.75rem;
+    }
+
+    .language-menu {
+        top: 44px;
+        width: 118px;
+        padding: 4px;
+    }
+
+    .lang-option {
+        padding: 6px 8px;
+        font-size: 0.82rem;
+    }
+}
