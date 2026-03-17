@@ -102,17 +102,7 @@ function setupFloatingOrderButton() {
 function setupAdminView() {
     const params = new URLSearchParams(window.location.search);
     const adminParam = params.get('admin');
-
-    if (adminParam === '1') {
-        localStorage.setItem('stainless_admin_view', '1');
-    }
-
-    if (adminParam === '0') {
-        localStorage.removeItem('stainless_admin_view');
-    }
-
-    const isAdminView = localStorage.getItem('stainless_admin_view') === '1';
-    document.body.classList.toggle('admin-view', isAdminView);
+    document.body.classList.toggle('admin-view', adminParam === '1');
 }
 
 function setupQrCode() {
